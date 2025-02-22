@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
 //this sends the html file to the web page using the root directory
-//
+//sends the VolCalculator.html file as the response when the route is accessed
 app.get("/VolCalc", function(req, res) {
   res.sendFile(__dirname + "/VolCalculator.html")
 });
@@ -22,8 +22,8 @@ app.post("/", function(req, res){
   var num1 = Number(req.body.n1);
   var num2 = Number(req.body.n2);
 
-// does the computation of the input variables, as numbers
-//This is a new comment that is gor GitHub
+//does the computation of the input variables, as numbers
+//uses the formula V = π * r² * h, where num1 is the radius and num2 is the height
   var volCylinder = Math.PI * Math.pow(num1, 2) * num2;
 
 // sends the results back to the web page as string
